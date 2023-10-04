@@ -1,7 +1,7 @@
 # Logs
 logs
 *.log
-
+docker
 
 node_modules
 

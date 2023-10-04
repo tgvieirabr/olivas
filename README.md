@@ -31,8 +31,9 @@ docker-compose up -d
 
 Quando a aplicação estiver pronta, você poderá acessá-la no seu navegador em:
 
-<http://localhost:8083>
+<http://localhost:8081>
 
+<https://localhost:8081/wp-admin>
 ## Parar e Limpar
 
 Para parar a aplicação e remover os contêineres, execute o seguinte comando no diretório raiz do projeto:

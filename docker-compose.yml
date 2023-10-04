@@ -6,12 +6,15 @@ services:
     container_name: db
     restart: always
     volumes:
-      - db_data:/var/lib/mysql
+      - ./docker/mysql/db_data:/var/lib/mysql
+      - ./backend/app/sql/:/docker-entrypoint-initdb.d
     environment:
       MYSQL_ROOT_PASSWORD: example
       MYSQL_DATABASE: wordpress
       MYSQL_USER: wordpress
       MYSQL_PASSWORD: wordpress
+    ports:
+      - "3366:3306"
 
   wordpress:
     depends_on:
@@ -19,15 +22,16 @@ services:
     image: wordpress:latest
     container_name: wordpress
     ports:
-      - "8080:80"
+      - "8081:80"
     volumes:
       - ./backend/app/public:/var/www/html
     restart: always
     environment:
-      WORDPRESS_DB_HOST: db:3306
-      WORDPRESS_DB_USER: wordpress
-      WORDPRESS_DB_PASSWORD: wordpress
-      WORDPRESS_DB_NAME: wordpress
+      DB_HOST: db
+      DB_PORT: 3366
+      DB_USER: wordpress
+      DB_PASSWORD: wordpress
+      DB_NAME: wordpress
 
   frontend:
     build:

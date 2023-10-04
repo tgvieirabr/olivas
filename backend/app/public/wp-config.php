@@ -18,25 +18,22 @@
  *
  * @package WordPress
  */
+ 
+define('DB_HOST', getenv('DB_HOST'));
+define('DB_NAME', getenv('DB_NAME'));
+define('DB_PORT', getenv('DB_PORT'));
+define('DB_PASSWORD', getenv('DB_PASSWORD'));
+define('DB_USER', getenv('DB_USER'));
 
-// ** Database settings - You can get this info from your web host ** //
-/** The name of the database for WordPress */
-define( 'DB_NAME', 'local' );
-
-/** Database username */
-define( 'DB_USER', 'root' );
-
-/** Database password */
-define( 'DB_PASSWORD', 'root' );
-
-/** Database hostname */
-define( 'DB_HOST', 'localhost' );
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );
 
 /** The database collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
+
+define( 'WP_HOME', 'http://localhost:8081' );
+define( 'WP_SITEURL', 'http://localhost:8081' );
 
 /**#@+
  * Authentication unique keys and salts.
@@ -51,7 +48,7 @@ define( 'DB_COLLATE', '' );
  */
 
 
-/**#@-*/
+/*#@-/
 
 /**
  * WordPress database table prefix.
@@ -96,7 +93,7 @@ define( 'WP_ENVIRONMENT_TYPE', 'local' );
 
 /** Absolute path to the WordPress directory. */
 if ( ! defined( 'ABSPATH' ) ) {
-	define( 'ABSPATH', __DIR__ . '/' );
+	define( 'ABSPATH', _DIR_ . '/' );
 }
 
 /** Sets up WordPress vars and included files. */
