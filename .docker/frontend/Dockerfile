@@ -3,7 +3,7 @@
 FROM node:18-alpine
 
 # Define o diretório de trabalho
-WORKDIR /usr/app
+WORKDIR /app
 
 # Copia o package.json e o package-lock.json para o diretório de trabalho
 COPY ./frontend/package*.json .
@@ -14,4 +14,4 @@ RUN npm install
 # Copia o resto da aplicação
 COPY ./frontend/ .
 
-#RUN npm run dev
+RUN npm run dev
